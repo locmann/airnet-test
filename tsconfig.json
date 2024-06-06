@@ -14,6 +14,23 @@
     "noEmit": true,
     "jsx": "react-jsx",
 
+    "baseUrl": "src",
+    "paths": {
+      "assets/*": ["assets/*"],
+      "context/*": ["context/*"],
+      "constants/*": ["constants/*"],
+      "components/*": ["components/*"],
+      "data/*": ["data/*"],
+      "features/*": ["features/*"],
+      "hooks/*": ["hooks/*"],
+      "providers/*": ["providers/*"],
+      "services/*": ["services/*"],
+      "store/*": ["store/*"],
+      "styles/*": ["styles/*"],
+      "ui/*": ["ui/*"],
+      "utils/*": ["utils/*"]
+    },
+
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
