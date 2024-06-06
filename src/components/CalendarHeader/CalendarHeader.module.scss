@@ -1,3 +1,16 @@
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.manage {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .days {
   display: grid;
   grid-template-columns: repeat(7, auto);

@@ -1,10 +1,6 @@
 import { createContext, Dispatch, SetStateAction, useContext } from 'react';
 
 type ContextType = {
-  month: number | null;
-  setMonth: Dispatch<SetStateAction<number | null>>;
-  year: number | null;
-  setYear: Dispatch<SetStateAction<number | null>>;
   currentDate: Date;
   setCurrentDate: Dispatch<SetStateAction<Date>>;
 };

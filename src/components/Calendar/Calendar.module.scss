@@ -1,5 +1,10 @@
 .calendar {
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
+  border: 0.1rem solid black;
+  border-radius: 0.8rem;
+  width: 51.2rem;
+  height: 25.6rem;
+  gap: 0.8rem;
+  padding: 0.8rem;
 }

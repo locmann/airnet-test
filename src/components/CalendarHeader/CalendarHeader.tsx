@@ -6,7 +6,7 @@ import { setMonth } from 'date-fns';
 const CalendarHeader = () => {
   const { currentDate, setCurrentDate } = useAppContext();
   const monthIndex = currentDate.getMonth();
-  //console.log(currentDate.getMonth());
+
   const handlePrevMonth = () => {
     const prevMonth = currentDate.getMonth() - 1;
     setCurrentDate(setMonth(currentDate, prevMonth));
@@ -14,13 +14,13 @@ const CalendarHeader = () => {
 
   const handleNextMonth = () => {
     const nextMonth = currentDate.getMonth() + 1;
-    //console.log(nextMonth);
+
     setCurrentDate(setMonth(currentDate, nextMonth));
   };
 
   return (
-    <div>
-      <div>
+    <div className={styles.header}>
+      <div className={styles.manage}>
         <button onClick={handlePrevMonth}>🡄</button>
         {MONTHS[monthIndex]}
         <button onClick={handleNextMonth}>🡆</button>
