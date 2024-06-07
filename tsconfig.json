@@ -27,6 +27,7 @@
       "services/*": ["services/*"],
       "store/*": ["store/*"],
       "styles/*": ["styles/*"],
+      "types/*": ["types/*"],
       "ui/*": ["ui/*"],
       "utils/*": ["utils/*"]
     },

@@ -1,12 +1,9 @@
 import styles from './Modal.module.scss';
-import { Dispatch, FC, SetStateAction } from 'react';
+import { FC } from 'react';
+import AddForm from 'components/AddForm/AddForm.tsx';
+import { ModalPropsType } from 'types/types.ts';
 
-type PropsType = {
-  active: boolean;
-  setActive: Dispatch<SetStateAction<boolean>>;
-};
-
-const Modal: FC<PropsType> = ({ active, setActive }) => {
+const Modal: FC<ModalPropsType> = ({ active, setActive }) => {
   const s = active ? `${styles.modal} ${styles.active}` : styles.modal;
   return (
     <div
@@ -16,7 +13,9 @@ const Modal: FC<PropsType> = ({ active, setActive }) => {
       <div
         onClick={(e) => e.stopPropagation()}
         className={styles.content}
-      ></div>
+      >
+        <AddForm />
+      </div>
     </div>
   );
 };

@@ -6,12 +6,19 @@ import Modal from 'components/Modal/Modal.tsx';
 
 const CalendarDays = () => {
   const [active, setActive] = useState(false);
-  const { currentDate } = useAppContext();
+  const { currentDate, setSelectedDay } = useAppContext();
   const daysInMonth = getDaysInMonth(currentDate);
   const q = Array.from({ length: daysInMonth }, (_, index) => index + 1);
 
   const firstDay = setDate(currentDate, 1);
   const gridDay = getDay(firstDay) === 0 ? 7 : getDay(firstDay);
+
+  const handleClickOnDay = (day: number) => {
+    setActive(!active);
+    const year = currentDate.getFullYear();
+    const month = currentDate.getMonth();
+    setSelectedDay(new Date(year, month, day));
+  };
 
   return (
     <div className={styles.days}>
@@ -26,7 +33,7 @@ const CalendarDays = () => {
           key={day}
           style={day === 1 ? { gridColumn: gridDay } : {}}
           className={styles.day}
-          onClick={() => setActive(!active)}
+          onClick={() => handleClickOnDay(day)}
         >
           {day}
         </div>

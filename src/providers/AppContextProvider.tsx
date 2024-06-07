@@ -1,12 +1,15 @@
 import { FC, PropsWithChildren, useState } from 'react';
 import { AppContext } from 'context/context.ts';
+import { MapType } from 'types/types.ts';
 
 const AppContextProvider: FC<PropsWithChildren> = ({ children }) => {
-  const [month, setMonth] = useState<number | null>(null);
-  const [year, setYear] = useState<number | null>(null);
+  const [selectedDay, setSelectedDay] = useState<Date | null>(null);
   const [currentDate, setCurrentDate] = useState<Date>(new Date());
+  const [todosMap, setTodosMap] = useState<MapType>(new Map());
   return (
-    <AppContext.Provider value={{ month, setMonth, year, setYear, currentDate, setCurrentDate }}>
+    <AppContext.Provider
+      value={{ currentDate, setCurrentDate, selectedDay, setSelectedDay, todosMap, setTodosMap }}
+    >
       {children}
     </AppContext.Provider>
   );

@@ -1,9 +1,5 @@
-import { createContext, Dispatch, SetStateAction, useContext } from 'react';
-
-type ContextType = {
-  currentDate: Date;
-  setCurrentDate: Dispatch<SetStateAction<Date>>;
-};
+import { createContext, useContext } from 'react';
+import { ContextType } from 'types/types.ts';
 
 export const AppContext = createContext<ContextType | undefined>(undefined);
 

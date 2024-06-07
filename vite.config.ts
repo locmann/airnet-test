@@ -18,6 +18,7 @@ export default defineConfig({
       services: '/src/services',
       store: '/src/store',
       styles: '/src/styles',
+      types: '/src/types',
       ui: '/src/ui',
       utils: '/src/utils',
     },
