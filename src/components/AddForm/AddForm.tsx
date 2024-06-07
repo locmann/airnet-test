@@ -1,11 +1,22 @@
 import { FormEvent, useState } from 'react';
 import styles from './AddForm.module.scss';
+import { useAppContext } from 'context/context.ts';
 const AddForm = () => {
   const [todo, setTodo] = useState('');
+  const { selectedDay, todosMap } = useAppContext();
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    console.log(todo);
+    if (selectedDay !== null) {
+      if (todosMap.has(selectedDay)) {
+        const currentTodos = todosMap.get(selectedDay) || [];
+        todosMap.set(selectedDay, [...currentTodos, todo]);
+      } else {
+        todosMap.set(selectedDay, [todo]);
+      }
+    }
+
+    console.log(todosMap);
   };
 
   return (

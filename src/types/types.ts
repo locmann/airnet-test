@@ -8,7 +8,7 @@ export type ContextType = {
   selectedDay: Date | null;
   setSelectedDay: Dispatch<SetStateAction<Date | null>>;
   todosMap: MapType;
-  setTodosMap: Dispatch<SetStateAction<MapType>>;
+  // setTodosMap: Dispatch<SetStateAction<MapType>>;
 };
 
 export type ModalPropsType = {
