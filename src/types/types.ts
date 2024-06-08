@@ -7,9 +7,11 @@ export type ContextType = {
   setCurrentDate: Dispatch<SetStateAction<Date>>;
   selectedDay: Date | null;
   setSelectedDay: Dispatch<SetStateAction<Date | null>>;
-  todosMap: MapType;
-  // setTodosMap: Dispatch<SetStateAction<MapType>>;
+  todosObj: TodosObjType;
+  setTodosObj: Dispatch<SetStateAction<TodosObjType>>;
 };
+
+export type TodosObjType = Record<string, string[]>;
 
 export type ModalPropsType = {
   active: boolean;

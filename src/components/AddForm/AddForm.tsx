@@ -3,20 +3,21 @@ import styles from './AddForm.module.scss';
 import { useAppContext } from 'context/context.ts';
 const AddForm = () => {
   const [todo, setTodo] = useState('');
-  const { selectedDay, todosMap } = useAppContext();
+  const { selectedDay, setTodosObj } = useAppContext();
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (selectedDay !== null) {
-      if (todosMap.has(selectedDay)) {
-        const currentTodos = todosMap.get(selectedDay) || [];
-        todosMap.set(selectedDay, [...currentTodos, todo]);
-      } else {
-        todosMap.set(selectedDay, [todo]);
-      }
+      setTodosObj((prevState) => {
+        const newState = { ...prevState };
+        if (newState[selectedDay.toString()]) {
+          newState[selectedDay.toString()] = [...newState[selectedDay.toString()], todo];
+        } else {
+          newState[selectedDay.toString()] = [todo];
+        }
+        return newState;
+      });
     }
-
-    console.log(todosMap);
   };
 
   return (
