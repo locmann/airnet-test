@@ -6,7 +6,11 @@ import Modal from 'components/Modal/Modal.tsx';
 
 const CalendarDays = () => {
   const [active, setActive] = useState(false);
-  const { currentDate, setSelectedDay } = useAppContext();
+  const { currentDate, setSelectedDay, todosObj } = useAppContext();
+
+  const keys = Object.keys(todosObj);
+  const hasTodosDays = keys.map((key) => new Date(key).getDate());
+
   const daysInMonth = getDaysInMonth(currentDate);
   const q = Array.from({ length: daysInMonth }, (_, index) => index + 1);
 
@@ -32,7 +36,7 @@ const CalendarDays = () => {
         <div
           key={day}
           style={day === 1 ? { gridColumn: gridDay } : {}}
-          className={styles.day}
+          className={hasTodosDays.includes(day) ? `${styles.day} ${styles.active}` : styles.day}
           onClick={() => handleClickOnDay(day)}
         >
           {day}

@@ -1,7 +1,5 @@
 import { Dispatch, SetStateAction } from 'react';
 
-export type MapType = Map<Date, string[]>;
-
 export type ContextType = {
   currentDate: Date;
   setCurrentDate: Dispatch<SetStateAction<Date>>;
@@ -11,7 +9,12 @@ export type ContextType = {
   setTodosObj: Dispatch<SetStateAction<TodosObjType>>;
 };
 
-export type TodosObjType = Record<string, string[]>;
+export type TodoType = {
+  isDone: boolean;
+  value: string;
+};
+
+export type TodosObjType = Record<string, TodoType[]>;
 
 export type ModalPropsType = {
   active: boolean;

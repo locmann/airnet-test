@@ -7,17 +7,22 @@ const AddForm = () => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    if (todo === '') return;
     if (selectedDay !== null) {
       setTodosObj((prevState) => {
         const newState = { ...prevState };
         if (newState[selectedDay.toString()]) {
-          newState[selectedDay.toString()] = [...newState[selectedDay.toString()], todo];
+          newState[selectedDay.toString()] = [
+            ...newState[selectedDay.toString()],
+            { isDone: false, value: todo },
+          ];
         } else {
-          newState[selectedDay.toString()] = [todo];
+          newState[selectedDay.toString()] = [{ isDone: false, value: todo }];
         }
         return newState;
       });
     }
+    setTodo('');
   };
 
   return (
