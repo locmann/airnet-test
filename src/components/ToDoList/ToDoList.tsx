@@ -1,5 +1,6 @@
 import { useAppContext } from 'context/context.ts';
 import styles from './ToDoList.module.scss';
+import { saveToLS } from 'utils/utils.ts';
 
 const ToDoList = () => {
   const { selectedDay, todosObj, setTodosObj } = useAppContext();
@@ -13,6 +14,7 @@ const ToDoList = () => {
           idx === index ? { ...todo, isDone: !todo.isDone } : todo,
         );
       }
+      saveToLS(newState);
       return newState;
     });
   };

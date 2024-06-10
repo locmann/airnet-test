@@ -1,6 +1,7 @@
 import { FormEvent, useState } from 'react';
 import styles from './AddForm.module.scss';
 import { useAppContext } from 'context/context.ts';
+import { saveToLS } from 'utils/utils.ts';
 const AddForm = () => {
   const [todo, setTodo] = useState('');
   const { selectedDay, setTodosObj } = useAppContext();
@@ -19,6 +20,7 @@ const AddForm = () => {
         } else {
           newState[selectedDay.toString()] = [{ isDone: false, value: todo }];
         }
+        saveToLS(newState);
         return newState;
       });
     }

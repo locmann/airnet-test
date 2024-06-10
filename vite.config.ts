@@ -10,7 +10,6 @@ export default defineConfig({
       context: '/src/context',
       constants: '/src/constants',
       components: '/src/components',
-
       data: '/src/data',
       features: '/src/features',
       hooks: '/src/hooks',
