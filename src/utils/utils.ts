@@ -12,3 +12,9 @@ export const loadFromLS = () => {
     return {};
   }
 };
+
+export const makeRequest = async (year: number, month: number) => {
+  const realMonth = month <= 9 ? `0${month + 1}` : `${month + 1}`;
+  const response = await fetch(`https://isdayoff.ru/api/getdata?year=${year}&month=${realMonth}`);
+  return await response.text();
+};
