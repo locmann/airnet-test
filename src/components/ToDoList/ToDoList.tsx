@@ -26,13 +26,17 @@ const ToDoList = () => {
           className={styles.liElement}
           key={index}
         >
-          <input
-            id={`li-${index}`}
-            type="checkbox"
-            checked={todo.isDone}
-            onChange={() => handleOnChange(index)}
-          />
-          <label htmlFor={`li-${index}`}>{todo.value}</label>
+          <div className={styles.todoContent}>
+            <input
+              id={`li-${index}`}
+              type="checkbox"
+              checked={todo.isDone}
+              onChange={() => handleOnChange(index)}
+            />
+            <label htmlFor={`li-${index}`}>{todo.value}</label>
+          </div>
+
+          <button className={styles.btn}>delete</button>
         </li>
       ))}
     </ul>
