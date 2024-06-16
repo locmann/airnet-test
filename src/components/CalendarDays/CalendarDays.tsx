@@ -10,7 +10,8 @@ const CalendarDays = () => {
   const { currentDate, setSelectedDay, todosObj } = useAppContext();
 
   const keys = Object.keys(todosObj);
-  const hasTodosDays = keys.map((key) => new Date(key).getDate());
+
+  const hasTodosDays = keys.map((key) => new Date(key).toDateString());
   const daysInMonth = getDaysInMonth(currentDate);
   const q = Array.from({ length: daysInMonth }, (_, index) => index + 1);
   const firstDay = setDate(currentDate, 1);
@@ -24,7 +25,11 @@ const CalendarDays = () => {
   };
 
   const applyStyles = (day: number, isDayOff: string) => {
-    let style = hasTodosDays.includes(day) ? `${styles.day} ${styles.active}` : styles.day;
+    const year = currentDate.getFullYear();
+    const month = currentDate.getMonth();
+    let style = hasTodosDays.includes(new Date(year, month, day).toDateString())
+      ? `${styles.day} ${styles.active}`
+      : styles.day;
     if (+isDayOff) {
       style += ` ${styles.holiday}`;
     }

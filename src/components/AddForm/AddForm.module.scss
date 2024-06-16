@@ -2,8 +2,21 @@
   display: grid;
   align-items: center;
   justify-content: center;
-  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+  grid-template-columns: auto auto;
   grid-template-rows: 1fr 1fr;
+
+  @media (max-width: 576px) {
+    input {
+      width: 10rem;
+      padding: 0.2rem 0.8rem;
+    }
+    button {
+      padding: 0.2rem 0.8rem;
+      font-size: 1.4rem;
+      align-self: center;
+    }
+  }
 }
 
 .label {
